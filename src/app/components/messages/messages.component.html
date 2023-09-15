@@ -1,5 +1,5 @@
 <ng-container *ngIf="(messages$ | async) as messages">
-  <div *ngIf="showMessages" class="messages">
+  <div *ngIf="hasMessages" class="messages">
     <div *ngFor="let message of messages" class="message" 
       [@slideInTop]
       [ngClass]="{ 'error' : message.severity == 0, 'warn' : message.severity == 1 }">

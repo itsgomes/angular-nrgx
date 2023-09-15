@@ -1,8 +1,8 @@
 import { animate, style, transition, trigger } from "@angular/animations";
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { Observable, tap } from "rxjs";
+import { Observable, tap, timer } from "rxjs";
 
 import { IMessage } from "src/app/models/message.model";
 import { MessagesService } from "src/app/services/messages.service";
@@ -25,22 +25,38 @@ import { MessagesService } from "src/app/services/messages.service";
         animate('300ms ease-out', style({ transform: 'translateY(0)' })),
       ])
     ])
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessagesComponent {
-  public showMessages: boolean = false;
+  @Input()
+  public messageTimer: number = 2000;
+  public hasMessages: boolean = false;
   public messages$!: Observable<IMessage[]>;
 
   constructor(
-    private messagesService: MessagesService
+    private messagesService: MessagesService, 
+    public cd: ChangeDetectorRef
   ) {
     this.messages$ = this.messagesService.messages$
       .pipe(
-        tap(() => this.showMessages = true)
+        tap(() => {
+          this.hasMessages = true;
+          this.startMessageLife();
+          this.cd.markForCheck();
+        })
       );
   }
 
   public close(): void {
-    this.showMessages = false;
+    this.hasMessages = false;
+    this.cd.markForCheck();
   }
+
+  private startMessageLife(): void {
+    timer(this.messageTimer).subscribe(() => { 
+      this.hasMessages = false;
+      this.cd.markForCheck();
+    });
+}
 }

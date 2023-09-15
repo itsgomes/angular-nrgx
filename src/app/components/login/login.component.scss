@@ -13,6 +13,10 @@ form {
   flex-direction: column;
   row-gap: 2rem;
 
+  label {
+    font-size: 0.9rem;
+  }
+
   button {
     width: 100%;
   }
