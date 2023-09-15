@@ -1,0 +1,23 @@
+:root {
+  --text-color: #131313;
+  --text-color-rgb: 0, 0, 0;
+  --text-color-opacity: rgba(var(--text-color-rgb), var(--opacity));
+
+  --text-primary-color: #4F46E5;
+  --text-primary-color-rgb: 79, 70, 229;
+  --text-primary-color-opacity: rgba(var(--text-primary-color-rgb), var(--opacity));
+
+  --text-color-reverse: #FFFFFF;
+  
+  --opacity: 0.70;
+  --border-radius: 6px;
+  --border-color: rgba(var(--text-color-rgb), 0.30);
+  --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.12);
+
+  --error-color: #C4342D;
+  --error-color-hover: #CB6762;
+  --success-color: #007000;
+  --success-color-hover: #0B650B;
+  --warn-color: #F4CF0F;
+  --warn-color-hover: #E6D05E;
+}

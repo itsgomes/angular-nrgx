@@ -1,0 +1,55 @@
+:host {
+  border-radius: 6px;
+  position: absolute;
+  bottom: 20px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+
+  p {
+    font-size: 0.85rem;
+    pointer-events: none;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+}
+
+.error {
+  background-color: var(--error-color);
+
+  p {
+    color: var(--text-color-reverse);
+  }
+
+  button {
+    color: var(--text-color-reverse);
+    border-color: var(--text-color-reverse);
+
+    &:hover {
+      background-color: var(--error-color-hover);
+    }
+  }
+}
+
+.warn {
+  background-color: var(--warn-color);
+
+  button:hover {
+    background-color: var(--warn-color-hover);
+  }
+}

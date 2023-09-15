@@ -1,0 +1,10 @@
+<ng-container *ngIf="(messages$ | async) as messages">
+  <div *ngIf="showMessages" class="messages">
+    <div *ngFor="let message of messages" class="message" 
+      [@slideInTop]
+      [ngClass]="{ 'error' : message.severity == 0, 'warn' : message.severity == 1 }">
+      <p>{{message.text}}</p>
+      <button type="button" class="flat" (click)="close()">OK</button>
+    </div>
+  </div>
+</ng-container>
