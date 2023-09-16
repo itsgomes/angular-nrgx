@@ -1,20 +1,18 @@
 <form [formGroup]="form" (submit)="onSubmit()">
-
-  <div class="form-item">
-    <label for="email">Email address</label>
-    <input type="email" name="email" id="email" autocomplete="email" formControlName="email">
+  <div class="mb-3">
+    <label class="form-label" for="email">Email address</label>
+    <input class="form-control" type="email" name="email" id="email" autocomplete="email" formControlName="email">
   </div>
 
-  <div class="form-item">
-    <div class="password-text">
-      <label for="password">Password</label>
-      <a>Forgot password?</a>
+  <div class="mb-3">
+    <div class="d-flex justify-content-between">
+      <label class="form-label" for="password">Password</label>
+      <a class="link-underline link-underline-opacity-0 link-opacity-100-hover" role="button">Forgot password?</a>
     </div>
-    <input type="password" name="password" id="password" autocomplete="current-password" formControlName="password">
+    <input class="form-control"  type="password" name="password" id="password" autocomplete="current-password" formControlName="password">
   </div>
 
-  <button type="submit" class="primary">Sign in</button>
-
+  <button type="submit" class="w-100 btn btn-primary">Sign in</button>
 </form>
 
-<p class="not-a-member">Not a member? <a>Create your account.</a></p>
+<p class="mt-5 text-center">Not a member? <a class="link-underline link-underline-opacity-0 link-opacity-100-hover" role="button">Create your account.</a></p>

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
-import { MessagesService } from 'src/app/services/messages.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'login-component',
@@ -14,7 +14,7 @@ import { MessagesService } from 'src/app/services/messages.service';
     ReactiveFormsModule
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  host: { 'class': 'w-100' }
 })
 export class LoginComponent {
   public form!: FormGroup;
@@ -23,7 +23,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private messagesService: MessagesService
+    private toastService: ToastService
   ) {
     this.form = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
@@ -41,7 +41,7 @@ export class LoginComponent {
       .subscribe(
         {
           next: () => this.router.navigateByUrl('/dashboard'),
-          error: (err) => this.messagesService.showMessages([{ severity: 0, text: err.error }])
+          error: (err) => this.toastService.showToast({ title: 'Error', body: err.error.message ?? 'An unexpected error occurred, please try again.', type: 1, delay: 3000})
         }
       );
   }

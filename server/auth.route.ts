@@ -9,5 +9,5 @@ export function authenticateUser(req: Request, res: Response) {
   if (user)
     res.status(200).json({ id: user.id, email: user.email });
   else
-    res.sendStatus(403);
+    res.status(403).json('You have entered an invalid username or password.');
 }

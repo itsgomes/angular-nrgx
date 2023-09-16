@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { LogoComponent } from 'src/app/components/logo/logo.component';
-import { MessagesComponent } from 'src/app/components/messages/messages.component';
-import { MessagesService } from 'src/app/services/messages.service';
+import { ToasterComponent } from 'src/app/components/toaster/toaster.component';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'login-page',
@@ -13,10 +13,9 @@ import { MessagesService } from 'src/app/services/messages.service';
     CommonModule,
     LoginComponent,
     LogoComponent,
-    MessagesComponent
+    ToasterComponent
   ],
-  providers: [MessagesService],
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss']
+  providers: [ToastService],
+  templateUrl: './login.page.html'
 })
 export class LoginPage {}
