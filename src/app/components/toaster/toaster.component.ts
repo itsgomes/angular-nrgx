@@ -1,4 +1,3 @@
-import { animate, style, transition, trigger } from "@angular/animations";
 import { CommonModule } from "@angular/common";
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -17,16 +16,6 @@ import { IToast } from "src/app/models/toast.model";
     ToastComponent
   ],
   templateUrl: './toaster.component.html',
-  animations: [
-    trigger('slideInTop', [
-      transition(':enter', [
-        style(
-          { transform: 'translateY(150%)' }
-          ),
-        animate('300ms ease-out', style({ transform: 'translateY(0)' })),
-      ])
-    ])
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToasterComponent implements AfterViewInit {
