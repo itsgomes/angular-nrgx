@@ -1,2 +1,9 @@
-<header-component></header-component>
-<h1>Dashboard working</h1>
+<div class="container-fluid d-flex flex-column gap-5">
+
+  <header-component></header-component>
+
+  <ng-container *ngIf="(productService.products$ | async) as products">
+    <product-list-component [products]="products"></product-list-component>
+  </ng-container>
+
+</div>
