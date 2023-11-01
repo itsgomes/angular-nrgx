@@ -1,9 +1,9 @@
-<div class="container-fluid d-flex flex-column gap-5">
+<div class="vh-100 container-fluid d-flex flex-column gap-5 p-0">
 
   <header-component></header-component>
 
   <ng-container *ngIf="(productService.products$ | async) as products">
-    <product-list-component [products]="products"></product-list-component>
+    <product-list-component [products]="products" class="overflow-auto"></product-list-component>
   </ng-container>
 
 </div>
